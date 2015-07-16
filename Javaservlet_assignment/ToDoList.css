@@ -1,0 +1,95 @@
+body {
+	color: #333;
+	background: #fff;
+	font: 14px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 22px;
+}
+
+h3 {
+	font: normal 300 12px 'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	letter-spacing: 2px;
+	margin-bottom: 20px; 
+	font-size: 24px; 
+	line-height: 22px;
+	text-align: center;
+}
+p {
+	line-height: 22px;
+}
+br {
+	line-height: 22px;
+}
+
+#section-topbar {
+	background-color: #107FC9;
+	height: 100px;
+	padding-left: 100px;
+	text-align: center;
+}
+
+h1{
+	padding-top: 30px;
+	color: white;
+}
+
+button{
+	height: 30px;
+	width: 86px;
+	background-color: rgb(25,104,195);
+	font: normal 300 10px 'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: white;
+	position: relative;
+
+}
+
+#my-list{
+	text-align: justify;
+	margin-left: 20px;
+	padding-top: 20px;
+}
+
+.column      { 
+	width: 40%; 
+	margin:20px;
+	font: normal 15px 'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: black;
+	float: left;
+	border: solid;
+	padding-right: 20px;
+	height: 70%;
+	border-radius:40px;
+	border-color: grey;
+}
+
+#section-intro	{
+	color: black;
+	font: normal 15px 'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: white; 
+	width:100%;
+	padding-top: 40px;
+	overflow: hidden;
+}
+.select{
+	padding-left: 33%;
+}
+
+
+select{
+	font: normal 15px 'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: white; 
+	color: black;
+	margin: 10px;
+	padding: 10px;
+
+}
+
+
+.clear{ 
+	clear: both; 
+}
+#b-completed{
+	position: relative;
+}
+
+
+
