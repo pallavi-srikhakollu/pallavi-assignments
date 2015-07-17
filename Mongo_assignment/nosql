@@ -63,7 +63,7 @@ db.management_system.find({"email":"sweta@gmail.com"} ).map( function(id) { retu
 
 //to insert into blog with the author id
 
-db.blogs.insert( { "title":"Bomb blast" , "description":  "a bomb blast at peshawar", "a":(db.users.findOne({"email":"sweta@gmail.com"})),"author": db.management_system.find({"email":"sweta@gmail.com"} ).map( function(u) { return toString(u._id); } ) ,   "comments":[{  "comment_id": "2", "by": "(db.users.findOne({"email":"abc@gmail.com"}))", "date_posted" : new Date() }], "slug": "www.toi.com/id/tyu" } )
+db.blogs.insert( { "title":"Bomb blast" , "description":  "a bomb blast at peshawar", "author": (db.management_system.find({"email":"sweta@gmail.com"} ).map( function(u) { return toString(u._id); } ) ,   "comments":[{  "comment_id": "2", "by": "(db.management_system.find({"email":"abc@gmail.com"} ).map( function(u) { return toString(u._id); } ) ", "date_posted" : new Date() }], "slug": "www.toi.com/id/tyu" } )
 
 
 
