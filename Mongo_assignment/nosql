@@ -1,0 +1,69 @@
+author
+{
+
+_id:objectId()
+
+user_name: “string”,
+password:  “string”,
+
+	profile:
+	{
+	
+	work: [array of string],
+
+			education:
+			{
+
+			schooling: string,
+			college: string,
+			work_exprience : integer,
+			skills: string[]
+			}
+
+
+	contact: 
+		{
+		
+		phone: integer,
+		address : string,
+		email: email
+		}
+}
+}
+
+
+
+BlogId{
+
+	id:Object_id()
+	title: String,
+	description: String,
+	authorId:objectId,
+	url: String,
+	viewed by: [array of integer],
+	update at: [ date and time ]
+
+
+
+
+	  comments:[
+		{
+		comment_id : object_id(),
+		userid:object_id(),
+		message: string,
+		date posted: [array of date and time]
+		}]
+
+}
+
+
+//to get the author id
+
+db.management_system.find({"email":"sweta@gmail.com"} ).map( function(id) { return id._id; } 
+
+//to insert into blog with the author id
+
+db.blogs.insert( { "title":"Bomb blast" , "description":  "a bomb blast at peshawar", "a":(db.users.findOne({"email":"sweta@gmail.com"})),"author": db.management_system.find({"email":"sweta@gmail.com"} ).map( function(u) { return toString(u._id); } ) ,   "comments":[{  "comment_id": "2", "by": "(db.users.findOne({"email":"abc@gmail.com"}))", "date_posted" : new Date() }], "slug": "www.toi.com/id/tyu" } )
+
+
+
