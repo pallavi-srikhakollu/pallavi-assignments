@@ -106,6 +106,7 @@
 		function addToCompleted(){
 			var id = this.id;
 			var rowId= id.split("-");
+			console.log(rowId);
 			var option1 = (document.getElementById("todo-options").rows[rowId[1]]).cells[0].innerHTML;
 			var index =0;
 			var tb = document.getElementById("completed-options");
