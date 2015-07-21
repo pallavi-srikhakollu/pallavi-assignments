@@ -1,0 +1,270 @@
+<html>
+			<head>
+				<meta charset="utf-8">
+				<title>
+					Assignment
+				</title>
+				<meta name="description" content="Webonise Assignment">
+				<meta name="author" content="Pallavi Srikhakollu">
+
+				<link rel="stylesheet" type="text/css" href="./ToDoList.css" />
+								
+				<script type="text/javascript">
+				
+
+				var todoText = "firsttodo";
+				var completedText="none";
+
+				window.onload = function () {
+						
+					//updateTodoTable();
+					//updateCompletedTable();
+			    }
+
+
+function General_Table () { // crating the class
+this.General_Tablename = "";
+this.tableid="";
+} 
+General_Table.prototype.addRows = function(table_id, tableText ) {
+    var table = document.getElementById(table_id);
+    //var data = document.getElementById("textId").value;
+    //var table = table_id;
+    var data = tableText;
+        if(data.length>0) {
+           
+       
+            var row = table.insertRow(0);
+        var col = row.insertCell(0);
+        col.innerHTML = tableText;
+        }
+        else{
+        	 alert("Text cannot be null");
+        }
+        //storetodb(document.getElementById("textId").value, 1);
+            
+        // var col1 = row.insertCell(1);
+       
+
+};
+
+
+General_Table.prototype.deleteRow = function (table_id,rowId) {
+
+	console.log("delete12");
+			//var id = this.id;
+			//var rowId= id.split("-");
+              //console.log(rowId[1]);
+			//var option1 = (document.getElementById(table_id).rows[rowId[1]]).cells[0].innerHTML;
+			//console.log(option1);
+
+			//document.getElementById(table_id).deleteRow(rowId);
+   //  console.log(table_id+" " + rowId);
+
+   document.getElementById(table_id).deleteRow(rowId);
+			// //var id = this.id;
+			// //var rowId= id.split("-");
+   //            //console.log(rowId[1]);
+   //        document.getElementById(table_id.parentNode.parentNode.parentNode.id).deleteRow(table_id.parentNode.parentNode.rowIndex);
+   //   // document.getElementById(table_id.parentNode.parentNode.parentNode.parentNode.id).rows[parentNode.parentNode.rowIndex];
+};
+
+
+function todotable() {
+General_Table.call(this); // call of the super class 
+// inheritance here 
+this.tablename="todo-options";
+this.Thistableid="todo-options";
+     
+}
+todotable.prototype = Object.create(General_Table.prototype);
+todotable.prototype.constructor = todotable;
+todotable.prototype.show = function() {
+
+        console.log("todo");
+    };
+
+
+    todotable.prototype.addRow = function(t) {
+  var index=0;
+	var task = document.getElementById("userInput").value;
+	//window.alert(task);
+	//window.alert(getElementById("userInput").value);
+    var t ="todo-options";
+    General_Table.prototype.addRows(t,task);
+
+var table = document.getElementById(t);
+    var row = table.rows[0];
+
+    var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+
+var button1 = document.createElement("button");
+				button1.setAttribute("value","Done");
+				button1.setAttribute("id","C-"+index);
+				button1.addEventListener("click", compleatedObject.addRows);
+				button1.innerHTML="Done";
+
+				var button2 = document.createElement("button");
+				button2.setAttribute("value","Delete");
+				button2.setAttribute("id","D-"+index);
+				var id = button2.id;
+			   var rowId= id.split("-");
+			   button2.addEventListener("click", function(){
+  General_Table.prototype.deleteRow("todo-options",rowId[1]) ;
+}, false);
+				//button2.addEventListener("click",General_Table.prototype.deleteRow("todo-options",rowId[1]) );
+				button2.innerHTML="Delete";
+
+				cell2.appendChild(button1);
+				cell3.appendChild(button2);
+				//index= index+1;
+
+
+
+
+}
+
+
+function compleatedtable() {
+General_Table.call(this); // call of the super class 
+// inheritance here 
+this.tablename="compleated-options";
+this.Thistableid="completed-options";
+     
+}
+compleatedtable.prototype = Object.create(General_Table.prototype);
+compleatedtable.prototype.constructor = compleatedtable;
+compleatedtable.prototype.show = function() {
+
+        console.log("compleatso");
+    };
+
+
+compleatedtable.prototype.addRows = function(t,h) {
+
+
+    
+var id = this.id;
+			var rowId= id.split("-");
+
+			var option1 = (document.getElementById("todo-options").rows[rowId[1]]).cells[0].innerHTML;
+       var t="completed-options";
+			General_Table.prototype.addRows(t,option1);
+var table = document.getElementById(t);
+    var row = table.rows[0];
+   // var option1 = (document.getElementById("todo-options").rows[rowId[1]]).cells[0].innerHTML;
+			var index =0;
+			var tb = document.getElementById("completed-options");
+			var tr= tb.getElementsByTagName("tr");	
+             console.log(option1);
+			//var row = tb.insertRow(index);
+				//var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+                //cell1.innerHTML=d;
+			//var text1 = option1.split("\n");
+			//cell1.innerHTML=option1;
+			var button1 = document.createElement("button");
+				button1.setAttribute("value","Delete");
+				//button1.addEventListener("click", General_Table.prototype.deleteRow("completed-options",rowId[1]));
+				button1.addEventListener("click", function(){
+  General_Table.prototype.deleteRow("completed-options",rowId[1]) ;
+}, false);
+				button1.innerHTML="Delete";
+			// var button1 = document.createElement("button");
+			// 	button1.setAttribute("value","Delete");
+			// 	button1.setAttribute("id","CD-"+index);
+				cell2.appendChild(button1);
+			index=index+1;
+			document.getElementById("todo-options").deleteRow(rowId);
+			 
+
+		};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var todoObject = new todotable();
+// var processObject = new prcesstable();
+var compleatedObject = new compleatedtable();
+
+
+
+
+</script>
+
+
+						</head>
+
+							<body>
+								<div id="section-topbar">
+									<div id="Title">
+										<h1>Pallavi's Task Status</h1>
+									</div>
+								</div>
+
+								
+								<div id="my-list">
+									<div class="column">
+										<h3>My To Do List</h3>
+										<div class="select">
+											<table id="todo-options">
+														<tr>
+															
+														</tr>
+													</table>
+													<p>
+														<input id="userInput" type="text"></input>
+														<button id="addNew" onClick="todoObject.addRow(todoObject.Thistableid)">Add New</button></p>
+
+										<div id="clear"></div>
+
+									</div>
+									</div>
+								</div>
+
+								<div id="clear"></div>
+
+							
+							<div id="completed-list">
+									<div class="column">
+												<h3>Completed</h3>
+												<div class="select">
+													<table id="completed-options">
+														<tr>
+															<!-- <td></td>
+															<td></td>
+															<td></td> -->
+														</tr></table>
+											<div id="clear"></div>
+										
+									</div>
+								
+
+			                          
+									</div>
+								</div>
+
+								
+							<div class="clear">
+                               <button id="history" onClick="">history</button>
+								<input id ="historytxt" input type="text"></input>
+							</div>
+
+						</body>
+								</html>

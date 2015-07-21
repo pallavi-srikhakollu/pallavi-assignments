@@ -1,0 +1,231 @@
+
+			<html>
+			<head>
+				<meta charset="utf-8">
+				<title>
+					Assignment
+				</title>
+				<meta name="description" content="Webonise Assignment">
+				<meta name="author" content="Pallavi Srikhakollu">
+
+				<link rel="stylesheet" type="text/css" href="./ToDoList.css" />
+								
+				<script type="text/javascript">
+				
+
+				var todoText = "firsttodo";
+				var completedText="none";
+
+				window.onload = function () {
+						
+					//updateTodoTable();
+					//updateCompletedTable();
+			    }
+
+		
+
+		function  updateTodoTable(){
+			//alert(todoText);
+			//var text1 = todoText.split("\n");
+			
+			var tb = document.getElementById("todo-options");
+			var tr= tb.getElementsByTagName("tr");	
+			 //var index = tr.length;
+			 var index=0;
+
+
+			//for(var i=0;i<text1.length;i++){
+                 
+				
+			    var row = tb.insertRow(index);
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+				var cell3 = row.insertCell(2);
+                 var uinput = document.getElementById("userInput").value;
+				cell1.innerHTML=document.getElementById("userInput").value;;
+                document.getElementById("userInput").value="";
+				var button1 = document.createElement("button");
+				button1.setAttribute("value","Done");
+				button1.setAttribute("id","C-"+index);
+				button1.addEventListener("click", addToCompleted);
+				button1.innerHTML="Done";
+
+				var button2 = document.createElement("button");
+				button2.setAttribute("value","Delete");
+				button2.setAttribute("id","D-"+index);
+				button2.addEventListener("click", deleteFromToDo);
+				button2.innerHTML="Delete";
+
+				cell2.appendChild(button1);
+				cell3.appendChild(button2);
+				index= index+1;
+				var todos;
+                if(localStorage.getItem("todo")!=null)
+                             {
+                             	todos = localStorage.getItem("todo");
+                             	todos = todos + uinput;
+                             }
+                             else
+                             {
+                             	todos = uinput;
+
+                             }
+                             	console.log(todos);
+
+                            localStorage.setItem("todo", todos);
+			//}	
+
+		}	
+
+
+		function updateCompletedTable(){
+			var text1 = completedText.split("\n");
+			//alert(text1[0]);
+			var tb = document.getElementById("completed-options");
+
+
+			for(var i=0;i<text1.length;i++){
+
+				var tr= tb.getElementsByTagName("tr");	
+			    var index = tr.length;
+			    var row = tb.insertRow(index);
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+
+				cell1.innerHTML=text1[i];
+
+				
+				var button1 = document.createElement("button");
+				button1.setAttribute("value","Delete");
+				button1.addEventListener("click", deleteFromCompleted);
+				button1.innerHTML="Delete";
+				button1.setAttribute("id","U-"+index);
+				cell2.appendChild(button1);
+		}
+}
+		function addToCompleted(){
+			var id = this.id;
+			var rowId= id.split("-");
+			console.log(rowId);
+			var option1 = (document.getElementById("todo-options").rows[rowId[1]]).cells[0].innerHTML;
+			var index =0;
+			var tb = document.getElementById("completed-options");
+			var tr= tb.getElementsByTagName("tr");	
+             console.log(option1);
+			var row = tb.insertRow(index);
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+                //cell1.innerHTML=d;
+			//var text1 = option1.split("\n");
+			cell1.innerHTML=option1;
+			var button1 = document.createElement("button");
+				button1.setAttribute("value","Delete");
+				button1.addEventListener("click", deleteFromCompleted);
+				button1.innerHTML="Delete";
+			// var button1 = document.createElement("button");
+			// 	button1.setAttribute("value","Delete");
+			// 	button1.setAttribute("id","CD-"+index);
+				cell2.appendChild(button1);
+			index=index+1;
+			document.getElementById("todo-options").deleteRow(rowId);
+			 
+
+		}
+
+		function deleteFromToDo(){
+			console.log("delete12");
+			var id = this.id;
+			var rowId= id.split("-");
+              console.log(rowId[1]);
+			var option1 = (document.getElementById("todo-options").rows[rowId[1]]).cells[0].innerHTML;
+			console.log(option1);
+
+			document.getElementById("todo-options").deleteRow(rowId);
+			 
+
+
+		}
+
+		function deleteFromCompleted(){
+			var id = this.id;
+			var rowId= id.split("-");
+			//var option1 = (document.getElementById("completed-options").rows[rowId[0]]).cells[0].innerHTML;
+
+			//var text1 = completedText.split("\n");
+             document.getElementById("completed-options").deleteRow(rowId);
+			
+
+		}
+
+		function addNewTask(){
+			var input = document.getElementById("userInput").value;
+			if(input.length>0){
+				
+					
+					updateTodoTable();
+					
+
+		}
+	}
+							</script>
+
+
+						</head>
+
+							<body>
+								<div id="section-topbar">
+									<div id="Title">
+										<h1>Pallavi's Task Status</h1>
+									</div>
+								</div>
+
+								
+								<div id="my-list">
+									<div class="column">
+										<h3>My To Do List</h3>
+										<div class="select">
+											<table id="todo-options">
+														<tr>
+															
+														</tr>
+													</table>
+													<p>
+														<input id="userInput" type="text"></input>
+														<button id="addNew" onClick="addNewTask()">Add New</button></p>
+
+										<div id="clear"></div>
+
+									</div>
+									</div>
+								</div>
+
+								<div id="clear"></div>
+
+							
+							<div id="completed-list">
+									<div class="column">
+												<h3>Completed</h3>
+												<div class="select">
+													<table id="completed-options">
+														<tr>
+															<!-- <td></td>
+															<td></td>
+															<td></td> -->
+														</tr></table>
+											<div id="clear"></div>
+										
+									</div>
+								
+
+			                          
+									</div>
+								</div>
+
+								
+							<div class="clear">
+                               <button id="history" onClick="">history</button>
+								<input id ="historytxt" input type="text"></input>
+							</div>
+
+						</body>
+								</html>
