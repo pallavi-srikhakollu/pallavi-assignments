@@ -1,16 +1,14 @@
 
-public class Program implements Image{    
+public class ProxyPatternDemo {
 	
-	//private URL url;   
-	public Program()    
-	{       //this.url = url; 
-		
-	}    //this method delegates to the real image    
-	
-	
-	public void display()   {        
-		
-		RealImage real = new RealImage();        
-		real.displayImage();   
-		
-	}}
+   public static void main(String[] args) {
+      Image image = new ProxyImage("test_10mb.jpg");
+
+      //image will be loaded from disk
+      image.display(); 
+      System.out.println("");
+      
+      //image will not be loaded from disk
+      image.display(); 	
+   }
+}
