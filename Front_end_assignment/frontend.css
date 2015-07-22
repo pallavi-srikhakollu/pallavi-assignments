@@ -1,0 +1,66 @@
+
+
+
+
+#logo a {
+
+
+	font: bold  12px 'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	letter-spacing: 0.90px;
+	/*margin-bottom: 0.12em; */
+	font-size:  2.0em; 
+	line-height: 12px;
+	text-align:left;
+display: block;
+width: 100px;
+height: 1px;
+
+
+margin-top: 35px;
+margin-left: 27px;
+margin-bottom: 12px;
+/*background-color: #b0c4de;*/
+}
+
+
+#color{
+	margin-top: 40px;
+    background-color: #C0C0C0;
+	width: 96%;
+    height: 28%;
+    margin-left: 26px;
+margin-right: 26px;
+}
+
+#banner {
+	font: bold 300  'Open Sans', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	letter-spacing: 0.90px;
+	font-size:  2.0em; 
+text-align: center;
+top:50px;
+transform: translateY(54%);
+padding-top: 40px;
+
+
+}
+#heading{
+font-size:  2.0em; 	
+margin-top: 20px;
+margin-left: 57px;
+
+}
+#para{
+
+	margin-top: 20px;
+margin-left: 57px;
+margin-right: 56px;
+line-height:23px;
+}
+#sub_heading
+{
+font-size:  1.2em; 	
+margin-top: 20px;
+margin-left: 57px;
+
+
+}
